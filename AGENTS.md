@@ -10,6 +10,7 @@ OpsContext is a portable Agent Plugin for software developers, DevOps engineers,
 - `skills/<name>/references/` contains details loaded only when needed.
 - `evals/<name>.json` contains activation and behavior cases.
 - `examples/` contains safe, non-secret configuration examples.
+- `schemas/` contains versioned schemas for public configuration formats.
 
 ## Design rules
 

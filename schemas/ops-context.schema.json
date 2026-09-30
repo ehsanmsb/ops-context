@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/ehsanmsb/ops-context/main/schemas/ops-context.schema.json",
+  "title": "OpsContext organization profile",
+  "description": "Non-secret organization context for OpsContext skills.",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "organization": {
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "source_control": {
+      "type": "object",
+      "properties": {
+        "provider": { "$ref": "#/$defs/nonEmptyString" },
+        "base_url": { "$ref": "#/$defs/uri" },
+        "group": { "$ref": "#/$defs/nonEmptyString" }
+      },
+      "additionalProperties": false
+    },
+    "documentation": {
+      "type": "object",
+      "properties": {
+        "repositories": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/uri" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "runbooks": {
+      "type": "object",
+      "properties": {
+        "repositories": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/runbookSource" }
+        },
+        "knowledge_bases": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/runbookSource" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "knowledge": {
+      "type": "object",
+      "properties": {
+        "provider": { "$ref": "#/$defs/nonEmptyString" },
+        "base_url": { "$ref": "#/$defs/uri" },
+        "spaces": { "$ref": "#/$defs/stringArray" }
+      },
+      "additionalProperties": false
+    },
+    "tickets": {
+      "type": "object",
+      "properties": {
+        "provider": { "$ref": "#/$defs/nonEmptyString" },
+        "base_url": { "$ref": "#/$defs/uri" },
+        "projects": { "$ref": "#/$defs/stringArray" }
+      },
+      "additionalProperties": false
+    },
+    "cloud": {
+      "type": "object",
+      "properties": {
+        "accounts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "provider"],
+            "properties": {
+              "name": { "$ref": "#/$defs/nonEmptyString" },
+              "provider": { "$ref": "#/$defs/nonEmptyString" },
+              "account_id": { "$ref": "#/$defs/nonEmptyString" },
+              "regions": { "$ref": "#/$defs/stringArray" },
+              "environment": { "$ref": "#/$defs/nonEmptyString" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "kubernetes": {
+      "type": "object",
+      "properties": {
+        "clusters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "context"],
+            "properties": {
+              "name": { "$ref": "#/$defs/nonEmptyString" },
+              "context": { "$ref": "#/$defs/nonEmptyString" },
+              "environment": { "$ref": "#/$defs/nonEmptyString" },
+              "default_namespace": { "$ref": "#/$defs/nonEmptyString" }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "observability": {
+      "type": "object",
+      "properties": {
+        "metrics": { "$ref": "#/$defs/uri" },
+        "logs": { "$ref": "#/$defs/uri" },
+        "traces": { "$ref": "#/$defs/uri" }
+      },
+      "additionalProperties": false
+    },
+    "systems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["capability", "name", "url"],
+        "properties": {
+          "capability": { "$ref": "#/$defs/nonEmptyString" },
+          "name": { "$ref": "#/$defs/nonEmptyString" },
+          "url": { "$ref": "#/$defs/uri" },
+          "environments": { "$ref": "#/$defs/stringArray" },
+          "projects": { "$ref": "#/$defs/stringArray" },
+          "mcp_tool": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "mcp_tools": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9_-]*$"
+      },
+      "additionalProperties": { "$ref": "#/$defs/nonEmptyString" }
+    }
+  },
+  "patternProperties": {
+    "^x-[a-z0-9-]+$": {}
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "uri": {
+      "type": "string",
+      "format": "uri"
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/nonEmptyString" },
+      "uniqueItems": true
+    },
+    "runbookSource": {
+      "type": "object",
+      "required": ["name", "url"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "url": { "$ref": "#/$defs/uri" },
+        "path": { "$ref": "#/$defs/nonEmptyString" },
+        "environments": { "$ref": "#/$defs/stringArray" },
+        "services": { "$ref": "#/$defs/stringArray" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

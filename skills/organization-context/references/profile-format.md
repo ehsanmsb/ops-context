@@ -2,7 +2,16 @@
 
 Use `.ops-context.yaml` at a repository root to describe non-secret organization context relevant to that project. Every section is optional. Omit unknown or unused values instead of adding placeholders.
 
+Validate a profile against [`schemas/ops-context.schema.json`](../../../schemas/ops-context.schema.json):
+
+```bash
+uvx check-jsonschema \
+  --schemafile https://raw.githubusercontent.com/ehsanmsb/ops-context/main/schemas/ops-context.schema.json \
+  .ops-context.yaml
+```
+
 ```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ehsanmsb/ops-context/main/schemas/ops-context.schema.json
 version: 1
 
 organization:
@@ -124,6 +133,8 @@ Use `runbooks.repositories` for version-controlled procedures and `runbooks.know
 
 ## Rules
 
+- Keep `version: 1` and use the published schema to detect misspelled or unsupported fields.
+- Put organization-specific extensions under a top-level `x-<name>` key.
 - Store identifiers and discovery URLs only.
 - Never store tokens, passwords, cookies, private keys, kubeconfigs, connection strings, or secret values.
 - Treat `mcp_tools` and per-system `mcp_tool` values as logical capability mappings, not proof that a connection exists.

@@ -22,7 +22,15 @@ Activation and behavior cases live in [`evals/git-workflow.json`](evals/git-work
 
 Resolves organization-specific source control, documentation, tickets, service catalogs, delivery systems, artifact registries, cloud accounts, Kubernetes clusters, observability, incidents, security, cost systems, and MCP capabilities without hardcoding private values into the public plugin.
 
-Projects can copy [`examples/ops-context.yaml`](examples/ops-context.yaml) to `.ops-context.yaml` and replace the example values with non-secret organization context. See the [profile format](skills/organization-context/references/profile-format.md) for boundaries and field guidance.
+Projects can copy [`examples/ops-context.yaml`](examples/ops-context.yaml) to `.ops-context.yaml` and replace the example values with non-secret organization context. The [`ops-context` JSON Schema](schemas/ops-context.schema.json) provides validation and editor completion. See the [profile format](skills/organization-context/references/profile-format.md) for boundaries and field guidance.
+
+Validate a profile without installing a project dependency:
+
+```bash
+uvx check-jsonschema \
+  --schemafile https://raw.githubusercontent.com/ehsanmsb/ops-context/main/schemas/ops-context.schema.json \
+  .ops-context.yaml
+```
 
 Actual MCP endpoints, authentication, internal policies, and sensitive references belong in the agent host configuration or a private companion plugin maintained by the organization.
 
@@ -58,7 +66,7 @@ Activation and behavior cases live in [`evals/runbook-executor.json`](evals/runb
 
 ## Status
 
-Version `0.5.0` adds safe discovery, assessment, and execution of organization-owned operational runbooks. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
+Version `0.6.0` adds a versioned schema and validation workflow for organization profiles. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
 
 ## License
 
