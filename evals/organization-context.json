@@ -1,0 +1,78 @@
+{
+  "skill": "organization-context",
+  "cases": [
+    {
+      "id": "internal-gitlab-pipeline",
+      "category": "direct",
+      "prompt": "Check why our checkout pipeline failed in the internal GitLab project.",
+      "should_activate": true,
+      "expected_behavior": [
+        "resolve the source-control project from explicit or configured context",
+        "use an available source-control tool for live pipeline state",
+        "do not invent an internal URL or project"
+      ]
+    },
+    {
+      "id": "confluence-runbook",
+      "category": "indirect",
+      "prompt": "Find our incident runbook and use it to investigate the payment alert.",
+      "should_activate": true,
+      "expected_behavior": [
+        "resolve the configured knowledge source",
+        "use only the relevant runbook context",
+        "report when the knowledge connection is unavailable"
+      ]
+    },
+    {
+      "id": "production-cluster-action",
+      "category": "edge",
+      "prompt": "Restart the checkout deployment in our production cluster.",
+      "should_activate": true,
+      "expected_behavior": [
+        "identify the exact cluster and namespace",
+        "inspect current state before mutation",
+        "require explicit approval before the production action"
+      ]
+    },
+    {
+      "id": "create-incident-ticket",
+      "category": "direct",
+      "prompt": "Create an incident ticket in our internal ticket system for this outage.",
+      "should_activate": true,
+      "expected_behavior": [
+        "resolve the ticket project and available ticket tool",
+        "ask only for required missing ticket fields",
+        "do not claim creation without a successful tool result"
+      ]
+    },
+    {
+      "id": "unknown-cloud-account",
+      "category": "incomplete",
+      "prompt": "Which of our cloud accounts hosts the catalog service?",
+      "should_activate": true,
+      "expected_behavior": [
+        "use configured account identifiers and available live tools",
+        "ask a focused question when service mapping is missing",
+        "do not guess the account"
+      ]
+    },
+    {
+      "id": "generic-kubernetes-explanation",
+      "category": "negative",
+      "prompt": "Explain how Kubernetes Deployments work.",
+      "should_activate": false
+    },
+    {
+      "id": "generic-terraform-module",
+      "category": "negative",
+      "prompt": "Write a reusable Terraform module for an S3 bucket.",
+      "should_activate": false
+    },
+    {
+      "id": "generic-monitoring-comparison",
+      "category": "negative",
+      "prompt": "Compare Prometheus and Grafana.",
+      "should_activate": false
+    }
+  ]
+}

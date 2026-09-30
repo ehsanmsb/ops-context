@@ -1,0 +1,90 @@
+version: 1
+
+organization:
+  name: Example Corp
+
+source_control:
+  provider: gitlab
+  base_url: https://gitlab.example.com
+  group: platform
+
+documentation:
+  repositories:
+    - https://gitlab.example.com/platform/runbooks
+
+knowledge:
+  provider: confluence
+  base_url: https://docs.example.com
+  spaces:
+    - PLATFORM
+
+tickets:
+  provider: jira
+  base_url: https://tickets.example.com
+  projects:
+    - OPS
+
+cloud:
+  accounts:
+    - name: production
+      provider: aws
+      account_id: "123456789012"
+      regions:
+        - eu-west-1
+      environment: production
+
+kubernetes:
+  clusters:
+    - name: production
+      context: production
+      environment: production
+      default_namespace: platform
+
+observability:
+  metrics: https://grafana.example.com
+  logs: https://logs.example.com
+  traces: https://traces.example.com
+
+systems:
+  - capability: developer-portal
+    name: backstage
+    url: https://developer.example.com
+  - capability: ci
+    name: gitlab-ci
+    url: https://gitlab.example.com
+  - capability: gitops
+    name: argocd
+    url: https://argocd.example.com
+  - capability: infrastructure-as-code
+    name: terraform
+    url: https://terraform.example.com
+  - capability: container-registry
+    name: harbor
+    url: https://registry.example.com
+  - capability: secrets-management
+    name: vault
+    url: https://vault.example.com
+  - capability: on-call
+    name: pagerduty
+    url: https://oncall.example.com
+  - capability: security-findings
+    name: security-center
+    url: https://security.example.com
+  - capability: cost-management
+    name: finops
+    url: https://cost.example.com
+
+mcp_tools:
+  source_control: gitlab
+  knowledge: confluence
+  tickets: jira
+  cloud: aws
+  kubernetes: kubernetes
+  observability: grafana
+  service_catalog: backstage
+  delivery: argocd
+  artifacts: harbor
+  secrets: vault
+  incidents: pagerduty
+  security: security-center
+  cost: finops
