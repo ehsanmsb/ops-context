@@ -10,6 +10,8 @@ OpsContext is an early-stage public Agent Plugin. It packages small, task-specif
 
 Guides branch naming, Conventional Commits, commit and push review gates, and removal of AI attribution from Git metadata.
 
+Activation and behavior cases live in [`evals/git-workflow.json`](evals/git-workflow.json).
+
 ## Principles
 
 - Load only the workflow relevant to the current request.

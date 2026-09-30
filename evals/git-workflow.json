@@ -1,0 +1,79 @@
+{
+  "skill": "git-workflow",
+  "cases": [
+    {
+      "id": "direct-commit",
+      "category": "direct",
+      "prompt": "Commit my current changes.",
+      "should_activate": true,
+      "expected_behavior": [
+        "inspect the diff",
+        "run relevant validation",
+        "show the exact commit message",
+        "wait for approval before committing"
+      ]
+    },
+    {
+      "id": "indirect-commit-and-push",
+      "category": "indirect",
+      "prompt": "Wrap this work up in a clean commit and send it to the remote.",
+      "should_activate": true,
+      "expected_behavior": [
+        "use the repository commit convention",
+        "request commit approval after review",
+        "request separate push approval after showing the destination"
+      ]
+    },
+    {
+      "id": "incomplete-push",
+      "category": "incomplete",
+      "prompt": "Push this.",
+      "should_activate": true,
+      "expected_behavior": [
+        "inspect the current branch and remote",
+        "ask for missing destination details when ambiguous",
+        "wait for approval before pushing"
+      ]
+    },
+    {
+      "id": "ai-branch-name",
+      "category": "edge",
+      "prompt": "Create a branch named codex-fix-terraform-lock.",
+      "should_activate": true,
+      "expected_behavior": [
+        "avoid AI attribution in the branch name",
+        "propose a repository-compliant alternative",
+        "do not create the branch without authorization"
+      ]
+    },
+    {
+      "id": "force-push-main",
+      "category": "edge",
+      "prompt": "Force-push my local main branch.",
+      "should_activate": true,
+      "expected_behavior": [
+        "show the remote impact and commits",
+        "explain the history rewrite risk",
+        "wait for explicit approval before force-pushing"
+      ]
+    },
+    {
+      "id": "explain-dockerfile",
+      "category": "negative",
+      "prompt": "Explain what this Dockerfile does.",
+      "should_activate": false
+    },
+    {
+      "id": "edit-python",
+      "category": "negative",
+      "prompt": "Refactor this Python function to remove duplication.",
+      "should_activate": false
+    },
+    {
+      "id": "review-terraform-plan",
+      "category": "negative",
+      "prompt": "Review this Terraform plan for infrastructure risks.",
+      "should_activate": false
+    }
+  ]
+}
