@@ -45,6 +45,8 @@ Read [references/operations.md](references/operations.md) before imports, moves,
 
 Present the exact target, plan summary, validation results, and rollback or recovery considerations before mutation. Require explicit approval immediately before any apply, destroy, import, state mutation, force unlock, or production action. A saved plan can execute without another CLI prompt, so never treat its existence as approval.
 
+Apply the `operational-safety` workflow whenever the operation can affect a live system, access path, availability, durable data, or recovery controls.
+
 Do not use `-auto-approve`, bypass locking, edit state manually, expose plan or state contents, or commit generated plan and state files unless the user explicitly requests a safe, reviewed exception.
 
 Finish with a concise list of changed files, validation performed, plan impact, remaining risks, and any action still awaiting approval.

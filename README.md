@@ -34,6 +34,12 @@ Creates, reviews, debugs, and safely operates Terraform and OpenTofu configurati
 
 Activation and behavior cases live in [`evals/terraform-opentofu.json`](evals/terraform-opentofu.json).
 
+### `operational-safety`
+
+Protects live systems from access lockout, outages, data loss, unsafe retries, and irreversible changes. It adds explicit safeguards for remote Linux administration, SSH and firewalls, networking, storage, cloud control planes, Kubernetes, databases, credentials, deployments, and incident operations.
+
+Activation and behavior cases live in [`evals/operational-safety.json`](evals/operational-safety.json).
+
 ## Principles
 
 - Load only the workflow relevant to the current request.
@@ -44,7 +50,7 @@ Activation and behavior cases live in [`evals/terraform-opentofu.json`](evals/te
 
 ## Status
 
-Version `0.3.0` adds reviewed Git workflows, a safe organization-context contract, and focused Terraform/OpenTofu operations. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
+Version `0.4.0` adds reviewed Git workflows, organization context, focused Terraform/OpenTofu operations, and shared operational safeguards for live systems. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
 
 ## License
 

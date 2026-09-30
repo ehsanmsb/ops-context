@@ -23,6 +23,7 @@ OpsContext is a portable Agent Plugin for software developers, DevOps engineers,
 - Keep the core portable; add runtime-specific adapters only after testing them.
 - Do not bundle an MCP server unless live data or controlled actions require one.
 - Never commit credentials, tokens, private keys, kubeconfigs, or secret values.
+- Every skill that can mutate a live system must route through `operational-safety` and define its stop conditions.
 
 ## Organization context
 

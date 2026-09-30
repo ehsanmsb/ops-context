@@ -1,6 +1,6 @@
 {
   "name": "ops-context",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Context-aware engineering workflows for DevOps and cloud AI agents.",
   "author": {
     "name": "ehsanmsb",
@@ -16,7 +16,9 @@
     "agent-skills",
     "git-workflow",
     "terraform",
-    "opentofu"
+    "opentofu",
+    "sre",
+    "operational-safety"
   ],
   "skills": "./skills/",
   "interface": {
