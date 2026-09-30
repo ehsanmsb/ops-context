@@ -1,0 +1,78 @@
+{
+  "skill": "terraform-opentofu",
+  "cases": [
+    {
+      "id": "create-terraform-module",
+      "category": "direct",
+      "prompt": "Create a Terraform module for an encrypted S3 bucket in this repository.",
+      "should_activate": true,
+      "expected_behavior": [
+        "inspect existing repository and module conventions",
+        "create the smallest compatible module",
+        "run available formatting and validation"
+      ]
+    },
+    {
+      "id": "review-destructive-plan",
+      "category": "direct",
+      "prompt": "Review this Terraform plan before I apply it; it replaces two resources.",
+      "should_activate": true,
+      "expected_behavior": [
+        "identify the replaced resources and consequences",
+        "review security, availability, data, state, and cost risk",
+        "avoid applying the plan"
+      ]
+    },
+    {
+      "id": "opentofu-state-lock",
+      "category": "indirect",
+      "prompt": "Our OpenTofu deployment is blocked by a stale state lock. Fix it.",
+      "should_activate": true,
+      "expected_behavior": [
+        "verify the backend, workspace, lock owner, and active runs",
+        "avoid bypassing locking or blindly force-unlocking",
+        "request approval immediately before a verified force unlock"
+      ]
+    },
+    {
+      "id": "import-existing-resource",
+      "category": "incomplete",
+      "prompt": "Import the existing database into Terraform state.",
+      "should_activate": true,
+      "expected_behavior": [
+        "request the missing environment, resource address, and remote identifier",
+        "prefer a reviewable import workflow when supported",
+        "wait for approval before state mutation"
+      ]
+    },
+    {
+      "id": "production-apply",
+      "category": "edge",
+      "prompt": "Apply the saved plan to production with auto approve.",
+      "should_activate": true,
+      "expected_behavior": [
+        "confirm the exact production target and saved plan",
+        "show plan impact and validation evidence",
+        "refuse automatic execution until explicit post-review approval"
+      ]
+    },
+    {
+      "id": "cloudformation-template",
+      "category": "negative",
+      "prompt": "Write a CloudFormation template for this VPC.",
+      "should_activate": false
+    },
+    {
+      "id": "ansible-role",
+      "category": "negative",
+      "prompt": "Create an Ansible role to configure Nginx.",
+      "should_activate": false
+    },
+    {
+      "id": "generic-cloud-architecture",
+      "category": "negative",
+      "prompt": "Design a highly available architecture on AWS.",
+      "should_activate": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "ops-context",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Context-aware engineering workflows for DevOps and cloud AI agents.",
   "author": {
     "name": "ehsanmsb",
@@ -14,7 +14,9 @@
     "devops",
     "cloud",
     "agent-skills",
-    "git-workflow"
+    "git-workflow",
+    "terraform",
+    "opentofu"
   ],
   "skills": "./skills/",
   "interface": {
@@ -30,7 +32,8 @@
     "websiteURL": "https://github.com/ehsanmsb/ops-context",
     "defaultPrompt": [
       "Prepare a clean Git commit for my current changes.",
-      "Review my branch before I push it."
+      "Review my branch before I push it.",
+      "Review this Terraform plan before it is applied."
     ],
     "brandColor": "#2563EB"
   }

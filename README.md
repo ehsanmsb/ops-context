@@ -26,6 +26,14 @@ Projects can copy [`examples/ops-context.yaml`](examples/ops-context.yaml) to `.
 
 Actual MCP endpoints, authentication, internal policies, and sensitive references belong in the agent host configuration or a private companion plugin maintained by the organization.
 
+Activation and behavior cases live in [`evals/organization-context.json`](evals/organization-context.json).
+
+### `terraform-opentofu`
+
+Creates, reviews, debugs, and safely operates Terraform and OpenTofu configuration. It preserves repository conventions, reviews plan impact, protects state, and requires explicit approval before applies, destroys, imports, state mutations, force unlocks, or production operations.
+
+Activation and behavior cases live in [`evals/terraform-opentofu.json`](evals/terraform-opentofu.json).
+
 ## Principles
 
 - Load only the workflow relevant to the current request.
@@ -36,7 +44,7 @@ Actual MCP endpoints, authentication, internal policies, and sensitive reference
 
 ## Status
 
-Version `0.2.0` establishes reviewed Git workflows and a safe organization-context contract. Infrastructure-specific workflows will be added incrementally after their activation and output behavior can be evaluated.
+Version `0.3.0` adds reviewed Git workflows, a safe organization-context contract, and focused Terraform/OpenTofu operations. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
 
 ## License
 
