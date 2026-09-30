@@ -1,0 +1,37 @@
+{
+  "name": "ops-context",
+  "version": "0.1.0",
+  "description": "Context-aware engineering workflows for DevOps and cloud AI agents.",
+  "author": {
+    "name": "ehsanmsb",
+    "email": "ehsan.mosaieby@gmail.com",
+    "url": "https://github.com/ehsanmsb"
+  },
+  "homepage": "https://github.com/ehsanmsb/ops-context",
+  "repository": "https://github.com/ehsanmsb/ops-context",
+  "license": "MIT",
+  "keywords": [
+    "devops",
+    "cloud",
+    "agent-skills",
+    "git-workflow"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "OpsContext",
+    "shortDescription": "Safer DevOps and cloud agent workflows",
+    "longDescription": "Context-aware skills that help AI agents produce focused, reviewable, and safer DevOps and cloud engineering changes.",
+    "developerName": "ehsanmsb",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/ehsanmsb/ops-context",
+    "defaultPrompt": [
+      "Prepare a clean Git commit for my current changes.",
+      "Review my branch before I push it."
+    ],
+    "brandColor": "#2563EB"
+  }
+}
