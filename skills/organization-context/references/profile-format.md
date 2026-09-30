@@ -15,7 +15,16 @@ source_control:
 
 documentation:
   repositories:
-    - https://gitlab.example.com/platform/runbooks
+    - https://gitlab.example.com/platform/docs
+
+runbooks:
+  repositories:
+    - name: platform-runbooks
+      url: https://gitlab.example.com/platform/runbooks
+      path: runbooks
+  knowledge_bases:
+    - name: operations
+      url: https://docs.example.com/operations/runbooks
 
 knowledge:
   provider: confluence
@@ -90,6 +99,7 @@ mcp_tools:
   incidents: pagerduty
   security: security-center
   cost: finops
+  runbooks: knowledge
 ```
 
 ## Recommended system capabilities
@@ -109,6 +119,8 @@ Add only capabilities the organization actually uses:
 - `communication` for the approved incident or engineering collaboration channel.
 
 Each `systems` item uses a stable capability plus the organization's recognizable tool name and discovery URL. Optional entries may also include `environments`, `projects`, or `mcp_tool` when they materially narrow selection.
+
+Use `runbooks.repositories` for version-controlled procedures and `runbooks.knowledge_bases` for canonical procedures maintained in documentation systems. Each entry needs a recognizable `name` and discovery `url`; add `path`, `environments`, or `services` only when they narrow selection. A logical `mcp_tools.runbooks` mapping may point to the configured knowledge or source-control capability, but it does not prove that the connection is available.
 
 ## Rules
 

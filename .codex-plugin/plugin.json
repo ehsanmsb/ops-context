@@ -1,6 +1,6 @@
 {
   "name": "ops-context",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Context-aware engineering workflows for DevOps and cloud AI agents.",
   "author": {
     "name": "ehsanmsb",
@@ -18,7 +18,8 @@
     "terraform",
     "opentofu",
     "sre",
-    "operational-safety"
+    "operational-safety",
+    "runbooks"
   ],
   "skills": "./skills/",
   "interface": {
@@ -35,7 +36,8 @@
     "defaultPrompt": [
       "Prepare a clean Git commit for my current changes.",
       "Review my branch before I push it.",
-      "Review this Terraform plan before it is applied."
+      "Review this Terraform plan before it is applied.",
+      "Find and safely follow the relevant operations runbook."
     ],
     "brandColor": "#2563EB"
   }

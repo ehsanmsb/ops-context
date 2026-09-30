@@ -10,7 +10,16 @@ source_control:
 
 documentation:
   repositories:
-    - https://gitlab.example.com/platform/runbooks
+    - https://gitlab.example.com/platform/docs
+
+runbooks:
+  repositories:
+    - name: platform-runbooks
+      url: https://gitlab.example.com/platform/runbooks
+      path: runbooks
+  knowledge_bases:
+    - name: operations
+      url: https://docs.example.com/operations/runbooks
 
 knowledge:
   provider: confluence
@@ -88,3 +97,4 @@ mcp_tools:
   incidents: pagerduty
   security: security-center
   cost: finops
+  runbooks: knowledge

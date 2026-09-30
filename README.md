@@ -40,6 +40,14 @@ Protects live systems from access lockout, outages, data loss, unsafe retries, a
 
 Activation and behavior cases live in [`evals/operational-safety.json`](evals/operational-safety.json).
 
+### `runbook-executor`
+
+Finds the canonical operational runbook, checks its ownership, scope, recency, preconditions, verification, and recovery path, then follows it one approved and verified step at a time. Organization-specific runbooks remain in their owning repositories or knowledge systems.
+
+Teams can start with the [runbook template](skills/runbook-executor/assets/runbook-template.md) and register non-secret discovery locations in `.ops-context.yaml`.
+
+Activation and behavior cases live in [`evals/runbook-executor.json`](evals/runbook-executor.json).
+
 ## Principles
 
 - Load only the workflow relevant to the current request.
@@ -50,7 +58,7 @@ Activation and behavior cases live in [`evals/operational-safety.json`](evals/op
 
 ## Status
 
-Version `0.4.0` adds reviewed Git workflows, organization context, focused Terraform/OpenTofu operations, and shared operational safeguards for live systems. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
+Version `0.5.0` adds safe discovery, assessment, and execution of organization-owned operational runbooks. Additional infrastructure workflows will be added incrementally after their activation and output behavior can be evaluated.
 
 ## License
 
